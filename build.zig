@@ -40,7 +40,9 @@ pub fn build(b: *std.Build) void {
     });
 
     const cimgui = @import("libs/cimgui/src/build.zig").build(b, target, optimize);
+    const nexus = @import("libs/nexus/src/build.zig").build(b, target, optimize);
     lib.root_module.addImport("imgui", cimgui);
+    lib.root_module.addImport("nexus", nexus);
 
     lib.linkLibCpp();
 
